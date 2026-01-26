@@ -1,3 +1,12 @@
 spring:
   application:
     name: skypredict-java
+  skypredict:
+    python:
+      base-url: "http://localhost:5000"
+
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "health,info"
