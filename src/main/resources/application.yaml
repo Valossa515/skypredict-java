@@ -1,12 +1,27 @@
 spring:
   application:
     name: skypredict-java
-  skypredict:
-    python:
-      base-url: "http://localhost:5000"
-
+  jmx:
+    enabled: false
+  docker:
+    compose:
+      enabled: false
   management:
     endpoints:
       web:
         exposure:
           include: "health,info"
+
+skypredict:
+  python:
+    base-url: "http://localhost:5000"
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    disable-swagger-default-url: true
+    url: /v3/api-docs

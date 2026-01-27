@@ -1,5 +1,7 @@
 package io.github.valossa515.skypredict_java.core.gateway;
 
+import io.github.valossa515.skypredict_java.core.domain.MapaSugeridoUrlResponse;
+
 import java.util.Map;
 
 public interface SkyPredictGateway {
@@ -9,4 +11,5 @@ public interface SkyPredictGateway {
     byte[] getGraficos(double lat, double lon, String data);
     byte[] getAnaliseGraficos(double lat, double lon);
     byte[] exportarExcel(double lat, double lon);
+    MapaSugeridoUrlResponse getMapaSugeridoUrl(String origemId, String destinoId, String data);
 }

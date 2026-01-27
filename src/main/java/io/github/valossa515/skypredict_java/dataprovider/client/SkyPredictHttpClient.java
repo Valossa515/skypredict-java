@@ -1,5 +1,6 @@
 package io.github.valossa515.skypredict_java.dataprovider.client;
 
+import io.github.valossa515.skypredict_java.core.domain.MapaSugeridoUrlResponse;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -40,4 +41,10 @@ public interface SkyPredictHttpClient {
     byte[] exportarExcel(
             @RequestParam("lat") double lat,
             @RequestParam("lon") double lon);
+
+    @GetExchange("/mapa_sugerido")
+    MapaSugeridoUrlResponse getMapaSugeridoUrl(
+            @RequestParam("origem_id") String origemId,
+            @RequestParam("destino_id") String destinoId,
+            @RequestParam("data") String data);
 }

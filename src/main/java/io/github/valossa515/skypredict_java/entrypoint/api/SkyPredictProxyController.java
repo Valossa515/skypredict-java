@@ -1,5 +1,6 @@
 package io.github.valossa515.skypredict_java.entrypoint.api;
 
+import io.github.valossa515.skypredict_java.core.domain.MapaSugeridoUrlResponse;
 import io.github.valossa515.skypredict_java.core.usecases.*;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Map;
 
 @RestController
@@ -19,6 +22,7 @@ public class SkyPredictProxyController {
     private final GetGraficosUseCase getGraficosUseCase;
     private final GetAnaliseGraficosUseCase getAnaliseGraficosUseCase;
     private final ExportarExcelUseCase exportarExcelUseCase;
+    private final GetSugerirMapaUseCase getSugerirMapaUseCase;
 
     public SkyPredictProxyController(
             GetPrevisaoUseCase getPrevisaoUseCase,
@@ -26,13 +30,15 @@ public class SkyPredictProxyController {
             GetAnaliseUseCase getAnaliseUseCase,
             GetGraficosUseCase getGraficosUseCase,
             GetAnaliseGraficosUseCase getAnaliseGraficosUseCase,
-            ExportarExcelUseCase exportarExcelUseCase) {
+            ExportarExcelUseCase exportarExcelUseCase,
+            GetSugerirMapaUseCase getSugerirMapaUseCase) {
         this.getPrevisaoUseCase = getPrevisaoUseCase;
         this.getSugerirRotaUseCase = getSugerirRotaUseCase;
         this.getAnaliseUseCase = getAnaliseUseCase;
         this.getGraficosUseCase = getGraficosUseCase;
         this.getAnaliseGraficosUseCase = getAnaliseGraficosUseCase;
         this.exportarExcelUseCase = exportarExcelUseCase;
+        this.getSugerirMapaUseCase = getSugerirMapaUseCase;
     }
 
     @GetMapping("/previsao")
@@ -85,5 +91,15 @@ public class SkyPredictProxyController {
         return ResponseEntity.ok()
                 .header("Content-Disposition", "attachment; filename=skypredict.xlsx")
                 .body(exportarExcelUseCase.execute(lat, lon));
+    }
+
+    @GetMapping(value = "/mapa_sugerido")
+    public ResponseEntity<MapaSugeridoUrlResponse> mapaSugerido(
+            @RequestParam String origemId,
+            @RequestParam String destinoId,
+            @RequestParam String data
+    ) {
+       return ResponseEntity.ok()
+                .body(getSugerirMapaUseCase.execute(origemId, destinoId, data));
     }
 }
