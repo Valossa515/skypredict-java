@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: skypredict-java-test
+  jmx:
+    enabled: false
+  docker:
+    compose:
+      enabled: false
+  data:
+    mongodb:
+      auto-index-creation: false
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+
+# WireMock server will be configured dynamically in tests
+skypredict:
+  python:
+    base-url: "http://localhost:${wiremock.server.port:8089}"
+
+spring.skypredict.python:
+  public-url: "http://localhost:${wiremock.server.port:8089}"
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false

@@ -1,0 +1,12 @@
+{
+  "analise": "Detalhada",
+  "risco": "Baixo",
+  "recomendacao": "Voo seguro",
+  "fatores": {
+    "visibilidade": "Boa",
+    "turbulencia": "Leve",
+    "precipitacao": "Nenhuma"
+  },
+  "indice_seguranca": 92,
+  "horarios_recomendados": ["06:00", "07:00", "18:00", "19:00"]
+}

@@ -1,0 +1,19 @@
+{
+  "rota": "GRU -> CGH",
+  "distancia_km": 25.5,
+  "tempo_estimado": "45 min",
+  "condicoes": "Favoráveis",
+  "waypoints": [
+    {
+      "nome": "Guarulhos",
+      "lat": -23.4356,
+      "lon": -46.4731
+    },
+    {
+      "nome": "Congonhas",
+      "lat": -23.6261,
+      "lon": -46.6564
+    }
+  ],
+  "alertas": []
+}

@@ -1,0 +1,12 @@
+{
+  "temperatura": 25.5,
+  "umidade": 80,
+  "precipitacao": 0.0,
+  "condicao": "Ensolarado",
+  "vento": {
+    "velocidade": 15.2,
+    "direcao": "NE"
+  },
+  "pressao": 1013.25,
+  "visibilidade": 10000
+}
