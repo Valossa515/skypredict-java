@@ -31,8 +31,8 @@ public class SkyPredictGatewayHttpAdapter implements SkyPredictGateway {
     }
 
     @Override
-    public Map<String, Object> getAnalise(double lat, double lon) {
-        return httpClient.getAnalise(lat, lon);
+    public Map<String, Object> getAnalise(double lat, double lon, boolean enhanced) {
+        return httpClient.getAnalise(lat, lon, enhanced);
     }
 
     @Override

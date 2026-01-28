@@ -24,7 +24,8 @@ public interface SkyPredictHttpClient {
     @GetExchange("/analise")
     Map<String, Object> getAnalise(
             @RequestParam("lat") double lat,
-            @RequestParam("lon") double lon);
+            @RequestParam("lon") double lon,
+            @RequestParam("enhanced") boolean enhanced);
 
     @GetExchange("/graficos")
     byte[] getGraficos(

@@ -60,8 +60,9 @@ public class SkyPredictProxyController {
     @GetMapping("/analise")
     public Map<String, Object> analise(
             @RequestParam double lat,
-            @RequestParam double lon) {
-        return getAnaliseUseCase.execute(lat, lon);
+            @RequestParam double lon,
+            @RequestParam boolean enhanced) {
+        return getAnaliseUseCase.execute(lat, lon, enhanced);
     }
 
     @GetMapping(value = "/graficos", produces = MediaType.IMAGE_PNG_VALUE)

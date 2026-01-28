@@ -16,7 +16,7 @@ public class GetAnaliseService implements GetAnaliseUseCase {
     }
 
     @Override
-    public Map<String, Object> execute(double lat, double lon) {
-        return gateway.getAnalise(lat, lon);
+    public Map<String, Object> execute(double lat, double lon, boolean enhanced) {
+        return gateway.getAnalise(lat, lon, enhanced);
     }
 }
