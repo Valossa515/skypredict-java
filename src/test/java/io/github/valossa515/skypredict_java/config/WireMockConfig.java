@@ -10,11 +10,10 @@ public class WireMockConfig {
 
     @Bean(initMethod = "start", destroyMethod = "stop")
     public WireMockServer wireMockServer() {
-        WireMockServer server = new WireMockServer(
+        return new WireMockServer(
                 WireMockConfiguration.wireMockConfig()
                         .dynamicPort()
                         .usingFilesUnderDirectory("src/test/resources")
         );
-        return server;
     }
 }
